@@ -5,7 +5,7 @@ testpy=`"~/weather_project/test.py"`
 if [ $conditional == "True" ]; then
 	while true; do 
 		$testpy
-	        sleep 3600
+	        sleep 1800
         done
 else
 	exit 1

@@ -1,2 +1,1 @@
-date,temp,feels_like,wind,alerts
-3/2/2023,53°,51°,8 mph,Wind Advisory +2 More3/6/2023,71°,71°,15 mph,None
+date,temp,feels_like,wind,alerts,humidity,sunrise,sunset
