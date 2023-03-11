@@ -1,12 +1,8 @@
 #!/bin/bash
-conditional=`cat conditional`
-testpy=`"~/weather_project/test.py"`
+conditional=`cat /home/nish/weather_project/conditional`
+testpy="test.py"
 
-if [ $conditional == "True" ]; then
-	while true; do 
-		$testpy
-	        sleep 1800
-        done
-else
-	exit 1
-fi
+while [ $conditional == "True" ]; do
+	$(eval "$testpy")
+	sleep 1800
+done
