@@ -4,5 +4,5 @@ testpy="test.py"
 
 while [ $conditional == "True" ]; do
 	$(eval "$testpy")
-	sleep 1800
+	sleep 7200
 done
