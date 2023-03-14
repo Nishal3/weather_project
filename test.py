@@ -13,7 +13,8 @@ if not bsed_w_html:
     exit()
 
 date_time_now = datetime.now()
-date_time_w_slash = "%s/%s/%s" % (date_time_now.month, date_time_now.day, date_time_now.year)
+date_time_w_slash = "%s/%s/%s_%s" % (date_time_now.month, date_time_now.day, date_time_now.year,
+        date_time_now.strftime("%H:%M:%S"))
 temp_rn = bsed_w_html.find(class_="CurrentConditions--tempValue--MHmYY").text
 temp_rn_feels_like = bsed_w_html.find(class_="TodayDetailsCard--feelsLikeTempValue--2icPt").text
 wind_rn = bsed_w_html.find(class_="Wind--windWrapper--3Ly7c undefined").text[14:]
