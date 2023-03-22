@@ -28,6 +28,6 @@ if "+" in str(alerts_rn):
     plus_val = alerts_rn.find("+")
     alert = alerts_rn[0:plus_val-1]
 
-with open("/home/nish/weather_project/weather_data.csv", mode="a") as weather_file:
+with open("/home/ubuntu/weather_project/weather_data.csv", mode="a") as weather_file:
     weather_file.write(f"{date_time_w_slash},{temp_rn},{temp_rn_feels_like},{wind_rn},{alerts_rn},{humidity_rn},{sunrise},{sunset}\n")
     weather_file.close()

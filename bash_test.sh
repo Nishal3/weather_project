@@ -1,5 +1,5 @@
 #!/bin/bash
-conditional=`cat /home/nish/weather_project/conditional`
+conditional=`cat /home/ubuntu/weather_project/conditional`
 testpy="test.py"
 
 while [ $conditional == "True" ]; do
