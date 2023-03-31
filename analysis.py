@@ -34,8 +34,4 @@ plt.xlabel("Time in minutes")
 plt.yticks(humidity_ticks)  # changing ticks to make it look more visually appealing
 plt.ylabel("Humidity in %")
 
-plt.show(block=True)
-# As we can see, the humidity has gone up drastically and the graph resembles a
-# logarithmic function
-
-
+plt.show
