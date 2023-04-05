@@ -25,4 +25,4 @@ plt.xlabel("Time in minutes")
 plt.ylabel("Humidity in %")
 plt.scatter(np.arange(0, 10050, step=30), humidity_axis)  # Making the time increment in 30 min so that plotting this is easier
 
-plt.show
+plt.show(block=True)
