@@ -8,21 +8,52 @@ weather_df = pd.read_csv("weather_data.csv")
 
 # Separating time to another column
 
-#time = weather_df.date.str.find('_'), Since all vals are 9, I will just use it as a constant
-weather_df["time"] = weather_df["date"].str[10:]
-weather_df.date = weather_df.date.str[:9]
+weather_df["date"] = pd.to_datetime(weather_df["date"], format="%m/%d/%Y_%H:%M:%S")
+weather_df["time"] = weather_df["date"].dt.time
+weather_df["date"] = weather_df["date"].dt.date
 
 # Making a graph of change in humidity throughout the week data was collected
 
 # Lets first change the percentage humidity to just a number
-weather_df["humidity"] = weather_df["humidity"].str[:2]   # Leveraging the fact that percentage never falls below double digits
-weather_df["humidity"] = weather_df["humidity"].astype(int)  # Changing the string to int; could cause problems later.
-
-humidity_axis = weather_df.humidity
+humidity_axis = pd.to_numeric(weather_df["humidity"].str.rstrip("%"))
+time_axis = np.arange(0, 10050, step=30)  # Making the time increment in 30 min so that plotting this is easier
 
 plt.title("Humidty/Time in one week")
 plt.xlabel("Time in minutes")
 plt.ylabel("Humidity in %")
-plt.scatter(np.arange(0, 10050, step=30), humidity_axis)  # Making the time increment in 30 min so that plotting this is easier
+plt.scatter(time_axis, humidity_axis)
 
 plt.show(block=True)
+
+# Now lets make a graph with both actual temp and feels like to compare the differences between the two
+
+# I'll give them the same treatment as I did for the humidity axis
+temp = pd.to_numeric(weather_df["temp"].str.rstrip("°"))
+feels_like = pd.to_numeric(weather_df["feels_like"].str.rstrip("°").astype(int))
+
+# I'll use the same time axis
+min_temp = temp.min() if temp.min() < feels_like.min() else feels_like.min()
+max_temp = temp.max() if temp.max() > feels_like.max() else feels_like.max()
+temp_axis = np.linspace(min_temp, max_temp, 335)
+
+# Setting up the figure
+fig, axes = plt.subplots(1, figsize=(7.5, 5))
+fig.suptitle("Perceived Temp. v. Actual Temp.")
+plt.xlabel("time")
+
+sns.scatterplot(ax=axes, y=temp, x=time_axis)
+sns.scatterplot(ax=axes, y=feels_like, x=time_axis)
+
+plt.show(block=True)
+
+
+
+
+
+
+
+
+
+
+
+
