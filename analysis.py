@@ -32,9 +32,7 @@ temp = pd.to_numeric(weather_df["temp"].str.rstrip("°"))
 feels_like = pd.to_numeric(weather_df["feels_like"].str.rstrip("°").astype(int))
 
 # I'll use the same time axis
-min_temp = temp.min() if temp.min() < feels_like.min() else feels_like.min()
-max_temp = temp.max() if temp.max() > feels_like.max() else feels_like.max()
-temp_axis = np.linspace(min_temp, max_temp, 335)
+# The temp axis looks fine in the graph so I won't make a temp axis
 
 # Setting up the figure
 fig, axes = plt.subplots(1, figsize=(7.5, 5))
