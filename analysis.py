@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import matplotlib.dates as mdates
 
 weather_df = pd.read_csv("weather_data.csv")
 
@@ -44,7 +45,61 @@ sns.scatterplot(ax=axes, y=feels_like, x=time_axis)
 
 plt.show(block=True)
 
+# Now lets plot to see how the sunrise and sunset times changed throughout the week
 
+# Converting the time in sunrise and sunset to pandas datetime objects
+weather_df["sunrise"] = pd.to_datetime(weather_df["sunrise"].str.split(" ").str.get(0), format="%H:%M")
+weather_df["sunset"] = pd.to_datetime(weather_df["sunset"].str.split(" ").str.get(0), format="%H:%M")
+
+# Got it working somehow, with some tape and some glue lol, nvm can't do two in same gives random ass errors
+
+# Setting up minutes for formatting and intervalling
+minutes = mdates.MinuteLocator(interval=2)
+min_format = mdates.DateFormatter("%H:%M:%S")
+# Same for days with the date
+dates = mdates.DayLocator(interval=2)
+date_format = mdates.DateFormatter("%m/%d/%Y")
+
+# Making a figure to plot the graphs
+rise_fig, rise_ax = plt.subplots(1, figsize=(7.5, 5))
+
+# First graph V Plotting
+rise_ax.plot(weather_df["date"], weather_df["sunrise"], color="pink")
+# V Setting locators
+rise_ax.yaxis.set_major_locator(minutes)
+rise_ax.xaxis.set_major_locator(dates)
+# V Setting formatters
+rise_ax.yaxis.set_major_formatter(min_format)
+rise_ax.xaxis.set_major_formatter(date_format)
+# Title
+rise_ax.set_title("Sunrise")
+# Y-axis
+rise_ax.set_ylabel("Time A.M.")
+# X-axis
+rise_ax.set_xlabel("Date")
+
+plt.show(block=True)
+
+# Setting up padding to see the left graph's ticks
+
+set_fig, set_ax = plt.subplots(1, figsize=(7.5, 5))
+
+# Second graph V Plotting
+set_ax.plot(weather_df["date"], weather_df["sunset"], color="red")
+# V Setting locators
+set_ax.yaxis.set_major_locator(minutes)
+set_ax.xaxis.set_major_locator(dates)
+# V Setting formatters
+set_ax.yaxis.set_major_formatter(min_format)
+set_ax.xaxis.set_major_formatter(date_format)
+# Title
+set_ax.set_title("Sunset")
+# Y-axis
+set_ax.set_ylabel("Time P.M.")
+# X-axis
+set_ax.set_xlabel("Date")
+
+plt.show(block=True)
 
 
 
