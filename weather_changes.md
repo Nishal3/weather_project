@@ -11,7 +11,7 @@ I collected data of humidity through a week of gathering data and the humidity h
 
 ## Temperature Changes
 The temperature also had quite a lot of changes throughout the week. As can be seen, the temperature also somewhat resembles a sine or cosine graph. The temperature also slowly goes up reaching 70 degrees farenheit at its peak.  
-The temperature goes down at night that is probably the reason that the temperature can be seen going up and down.
+The temperature goes down at night that is probably the reason why the temperature can be seen going up and down.
 
 ![Temp Graph]
 
