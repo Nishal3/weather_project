@@ -25,5 +25,5 @@ The temperature goes down at night that is probably the reason why the temperatu
 
 
 <!--- Image References -->
-[Humidity Graph]:https://nishalnepal.s3.amazonaws.com/Weather_Project_Stuff/humidity_graph.png "Humidity Data"
-[Temp Graph]:https://nishalnepal.s3.amazonaws.com/Weather_Project_Stuff/temp_graph.png "Temp Data"
+[Humidity Graph]:https://d3b7zz3nij9kip.cloudfront.net/Weather_Project_Stuff/humidity_graph.png "Humidity Data"
+[Temp Graph]:https://d3b7zz3nij9kip.cloudfront.net/Weather_Project_Stuff/temp_graph.png "Temp Data"
