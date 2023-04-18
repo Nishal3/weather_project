@@ -3,7 +3,7 @@
 ## Description
 Data scraped from the weather channel is used to make a data frame. That data is then used to create graphs and is analyzed to see what occurred.
 
-*Note: This was collected only for a week.*
+*Note: Collection of data lasted only for a week.*
 
 -------------------------------------------
 
