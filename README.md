@@ -3,7 +3,7 @@
 ## Description
 Data scraped from the weather channel is used to make a data frame. That data is then used to create graphs and is analyzed to see what occurred.
 
-*Note: This was collected only for a week.*
+*Note: Collection of data lasted only for a week.*
 
 -------------------------------------------
 
@@ -35,3 +35,5 @@ Quite a lot of things are affected by the temperature: one can be when to vend c
 Another use-case is when to advertise sports equipment. When advertising sports equipment in the summer, leveraging the data on temperature to see when people are most active can be used to see when people buy equipment most frequently.
 
 ### Sunrise & Sunset Times
+The time the sun is up can affect how people view solar panels; a prolonged duration could make people more inclined to buy them and vice-versa. You can then leverage this, especially in the summer when the days are longer.
+
