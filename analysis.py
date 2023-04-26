@@ -40,8 +40,8 @@ fig, axes = plt.subplots(1, figsize=(7.5, 5))
 fig.suptitle("Perceived Temp. v. Actual Temp.")
 plt.xlabel("time")
 
-sns.scatterplot(ax=axes, y=temp, x=time_axis)
-sns.scatterplot(ax=axes, y=feels_like, x=time_axis)
+sns.scatterplot(ax=axes, y=temp, x=time_axis, label="TEMP.")
+sns.scatterplot(ax=axes, y=feels_like, x=time_axis, label="FEELS LIKE")
 
 plt.show(block=True)
 
